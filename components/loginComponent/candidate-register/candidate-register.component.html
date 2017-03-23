@@ -264,7 +264,7 @@
           <!--Register Button-->
           <div fxLayout="row">
             <button md-raised-button color="primary" class="full-width registerBtn" type="submit" (click)="onRegister(userForm)" id="resetBtn"
-              [disabled]="userForm.valid">Register</button>
+              [disabled]="!userForm.valid">Register</button>
           </div>
 
         </form>

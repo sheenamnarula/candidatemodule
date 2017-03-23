@@ -22,11 +22,28 @@ export class LayoutComponent implements OnInit {
   public isDarkTheme = false;
   public navList = [];
 
-  constructor(private authenticationService: AuthenticationService, 
+  constructor(private authenticationService: AuthenticationService,
     private snackBar: MdSnackBar, private viewContainerRef: ViewContainerRef, private JsonDataService: JsonDataService) { }
 
   ngOnInit() {
-    this.JsonDataService.getNavLinks().subscribe(resJsonData => this.getdata(resJsonData));
+    let tokenVerification = JSON.parse(localStorage.getItem('currentUser'))["token"]; 
+    this.JsonDataService.getNavLinks(tokenVerification)
+      .subscribe(
+      role => {
+        if (role.success) {
+          this.getdata(role.data)
+        }
+        else {
+          tokenVerification = null;
+          localStorage.removeItem('currentUser');
+          // this.router.navigate(['/login']);
+          //// this.data.openSnackBar(role["message"], 'Ok');
+
+        }
+      }, error => {
+        console.log(error);
+      });
+    // this.JsonDataService.getNavLinks().subscribe(resJsonData => this.getdata(resJsonData));
   }
 
   // getdata for navigations

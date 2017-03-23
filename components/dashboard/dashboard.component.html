@@ -1,13 +1,19 @@
-<md-grid-list cols="1" rowHeight="200px">
-  <md-grid-tile>
-    <md-card>
-      <p>
-        Dashboard
-      </p>
-      <p>
-        Coming soon..
-      </p>
+<div fxLayout="row" fxLayout.xs="column" class="profilePage">
+  <!--profile Card section-->
+  <div fxFlex.gt-xs="350px" fxFlex.xs="550px" class="profileCard">
+    <sam-profile-card [profileCardData]="profileCardData"> </sam-profile-card>
+  </div>
 
-    </md-card>
-  </md-grid-tile>
-</md-grid-list>
+  <!--spacing between components-->
+  <div fxFlex="30px"></div>
+
+  <!--view profile sections dynamic-->
+  <div fxFlex class="profileSection">
+    <div fxLayout="row" fxLayoutWrap>
+      <div *ngFor="let section of sections" fxFlex>
+        <sam-profile-section [section]="section.data" [sectionTitle]="section.title" [align]="section.align">
+        </sam-profile-section>
+      </div>
+    </div>
+  </div>
+</div>

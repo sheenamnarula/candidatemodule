@@ -9,6 +9,11 @@ export class EmailService {
   constructor(private http: Http) { }
   sendEmail(mailObj: any) {
     this.url = '/auth/register-email';
-    return this.http.post(this.url,mailObj).map((response: Response) => response.json());
+    return this.http.post(this.url, mailObj).map((response: Response) => response.json());
+  };
+
+  sendResetPasswordEmail(mailObj: any) {
+    this.url = '/auth/verify-reset-email';
+    return this.http.post(this.url, mailObj).map((response: Response) => response.json());
   };
 }

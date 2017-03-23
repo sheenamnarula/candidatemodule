@@ -45,6 +45,18 @@ export class AuthenticationService {
         this.token = null;
 
         localStorage.removeItem('currentUser');
-        this.router.navigate(['/'])
+        this.router.navigate(['/login'])
     }
+
+    getCreatedBy(){
+            let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    if(currentUser){
+        return currentUser.username;
+    }
+    else{
+        return currentUser;
+    }
+
+}
 }

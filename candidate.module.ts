@@ -1,4 +1,3 @@
-
 import { MainComponent } from './mainComponent';
 import { UserService } from './services/user.service';
 import { ProfileService } from './services/profile.service';
@@ -6,11 +5,8 @@ import { JsonDataService } from './services/json-data.service';
 import { EmailService } from './services/email.service';
 import { Data } from './services/data.service';
 import { AuthenticationService } from './services/authentication.service';
-
 import { AppRoutingModule, routingComponents } from './app-routing.module';
-
-import {ModuleWithProviders} from '@angular/core' ;
-
+import { ModuleWithProviders } from '@angular/core';
 import { LogoutComponent } from './components/logout/logout.component';
 import { VerifyEmailComponent } from './components/loginComponent/verify-email/verify-email.component';
 import { PasswordResetComponent } from './components/loginComponent/password-reset/password-reset.component';
@@ -18,7 +14,6 @@ import { LoginHeaderComponent } from './components/loginComponent/login-header/l
 import { LoginFooterComponent } from './components/loginComponent/login-footer/login-footer.component';
 import { ForgotPasswordComponent } from './components/loginComponent/forgot-password/forgot-password.component';
 import { LoginComponent } from './components/loginComponent/login/login.component';
-
 import { LayoutComponent } from './components/layout/layout.component';
 import { JobPostComponent } from './components/job-post/job-post.component';
 import { EventPostComponent } from './components/event-post/event-post.component';
@@ -36,6 +31,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import 'hammerjs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Md2Module } from 'md2';
+import { SamarthyaWebComponentsModule } from 'samarthyaWebcomponent';
+import { SamProfileSectionPersonalinfoService } from './sam-profile-section-services/sam-profile-section-personalinfo.service';
+import { SamProfileCardService } from './sam-profile-section-services/sam-profile-card.service';
+import { SamProfileSectionSkillsService } from './sam-profile-section-services/sam-profile-section-skills.service';
+// import { SamDynamicElementComponent } from 'samarthyaWebcomponent/sam-dynamic-section/sam-dynamic-element/sam-dynamic-element.component';
+// import { SamDynamicViewComponent } from 'samarthyaWebcomponent/sam-dynamic-section/sam-dynamic-view/sam-dynamic-view.component';
+import { SamProfileSectionComponent } from 'samarthyaWebcomponent/sam-profile/sam-profile-section/sam-profile-section.component';
+import { SamProfileCardComponent } from 'samarthyaWebcomponent/sam-profile/sam-profile-card/sam-profile-card.component';
+
 
 @NgModule({
 	imports: [
@@ -46,7 +50,9 @@ import { Md2Module } from 'md2';
 		Md2Module.forRoot(),
 		ReactiveFormsModule,
 		FlexLayoutModule,
-		AppRoutingModule
+		AppRoutingModule,
+		SamarthyaWebComponentsModule,
+
 	],
 	declarations: [
 		AboutUsComponent,
@@ -67,7 +73,11 @@ import { Md2Module } from 'md2';
 		VerifyEmailComponent,
 		LogoutComponent,
 		MainComponent,
-		routingComponents	
+		routingComponents,
+		// SamDynamicElementComponent,
+		// SamDynamicViewComponent,
+		// SamProfileCardComponent,
+		// SamProfileSectionComponent
 	],
 	bootstrap: [MainComponent],
 	exports: [
@@ -89,23 +99,30 @@ import { Md2Module } from 'md2';
 		VerifyEmailComponent,
 		LogoutComponent,
 		MainComponent,
-		routingComponents
-
+		routingComponents,
+		// SamDynamicElementComponent,
+		// SamDynamicViewComponent,
+		SamProfileCardComponent,
+		SamProfileSectionComponent
 	]
 })
 
-export class CandidateModule { 
-    static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: CandidateModule,
-      providers: [
-       AuthenticationService,
-		Data,
-		EmailService,
-		JsonDataService,
-		ProfileService,
-		UserService
-      ]
-    }
-  }
+export class CandidateModule {
+	static forRoot(): ModuleWithProviders {
+		return {
+			ngModule: CandidateModule,
+			providers: [
+				AuthenticationService,
+				Data,
+				EmailService,
+				JsonDataService,
+				ProfileService,
+				UserService,
+				SamProfileSectionPersonalinfoService,
+				SamProfileSectionSkillsService,
+				SamProfileCardService,
+
+			]
+		}
+	}
 }

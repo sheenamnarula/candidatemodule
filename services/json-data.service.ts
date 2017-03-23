@@ -1,12 +1,10 @@
-import { LoginComponent } from './../components/loginComponent/login/login.component';
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
 import { Router } from '@angular/router';
-//import { LoginComponent } from './components/loginComponent/login/login.component';
-
+// import { LoginComponent } from 'app/components/loginComponent/login/login.component';
 import { RequestOptions, Request, RequestMethod } from '@angular/http';
 
 @Injectable()
@@ -18,7 +16,7 @@ export class JsonDataService {
   + this.mygovKey + '&filters[pincode]=';
 
   // url to retrive data from json file for candidate navLinks
-  private urlNavlinks = 'resources/navList';
+  private urlNavlinks = 'auth/nav-menus';
 
   // url to get langauges
   private urlLanguages = 'resources/languages';
@@ -41,15 +39,16 @@ export class JsonDataService {
     });
   }
 
-  // Store Registration details in databse
+  // Store Registration details in database
   registerUser(formData): any {
-    console.log(formData);
-    return this.http.post('/users', formData).map(data => {
-      console.log(data.json),
-      data.json();
-    }, error => {
-      console.log(error.json());
-    });
+    return this.http.post('/candidates', formData).map(data =>
+      data.json()
+      , error => {
+        error.json();
+        console.log('GOT ERROR');
+        console.log(error.json());
+
+      });
   }
 
   // get data for by verify email in database
@@ -59,8 +58,9 @@ export class JsonDataService {
   };
 
   // get json data for candidate navigatin links
-  getNavLinks() {
-    return this.http.get(this.urlNavlinks).map((response: Response) => response.json());
+  getNavLinks(token) {
+
+    return this.http.get(this.urlNavlinks, this.authoriZation(token)).map((response: Response) => response.json());
   };
 
   // get json data for langauges
@@ -91,6 +91,22 @@ export class JsonDataService {
 
   verifyToken(token) {
     return this.http.post("/auth/verify-email", { token: token }).map((response: Response) => response.json());
+  }
+
+  verifyEmail(email) {
+    return this.http.post("auth/register-email", { username: email }).map((response: Response) => response.json());
+  }
+  
+  verifyUser(email) {
+    return this.http.post("auth/verify-user", { username: email }).map((response: Response) => response.json());
+  }
+  private authoriZation(userToken) {
+    if (userToken) {
+      let headers = new Headers({ 'Authorization': userToken });
+      return new RequestOptions({ headers: headers });
+    }
 
   }
+
+
 }

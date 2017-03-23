@@ -29,7 +29,14 @@
     <span><b class="headerSmall">Samarthya</b></span>
 
     <span class="fill-remaining-space"></span>
-    <button md-button (click)="toggleTheme()">TOGGLE DARK THEME</button>
+
+    <md-slide-toggle class="example-margin" (click)="toggleTheme()" fxHide.xs>
+      DARK THEME
+    </md-slide-toggle>
+    <md-slide-toggle class="example-margin" (click)="toggleTheme()" fxHide.gt-xs>
+    </md-slide-toggle>
+
+
     <!--appbar buttons-->
     <!--notification button-->
     <a md-icon-button [mdMenuTriggerFor]="menuNotification">
