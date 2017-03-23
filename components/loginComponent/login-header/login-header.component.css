@@ -1,0 +1,147 @@
+.formIcons {
+    line-height: unset;
+}
+
+* {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.headerBtn{
+    color: white;
+    }
+.backgroundImage{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    position: absolute;
+    z-index: -10000;
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.mainHeader {
+    top: 0px;
+    position: fixed;
+    z-index: 1000;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.langBar {
+    margin-top: 64px;
+    /*background-color: #EEEEEE;*/
+    background-color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+    text-align: center;
+}
+
+.langBtn {
+    color: white;
+    color: #616161;
+    margin: 1px;
+
+     font-family: 'Baloo Tamma', cursive;
+}
+
+.logo {
+    /*text-align: center;*/
+    /*margin: auto;*/
+    /*margin-left: 5%;*/
+    font-size: 20px;
+    font-weight: bold;
+    color: whitesmoke;
+    text-decoration-line: none
+}
+
+.center {
+    margin: auto;
+    text-align: center;
+}
+
+md-select {
+    color: red;
+}
+
+.logo:hover {
+    color: white;
+}
+
+.footer {
+    opacity: .9;
+    display: block;
+    max-height: unset;
+    height: 150px;
+    /*display: block;*/
+    /*position: relative;*/
+}
+
+.footerHead {
+    margin: auto;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+}
+
+.footerLinks {
+    /*padding-left: 30%;*/
+    color: white;
+}
+
+.footerLinks ul li a {
+    color: white;
+    font-size: 15px;
+    text-decoration: unset;
+}
+
+.footerLinks ul li {
+    list-style: none;
+}
+
+.copyright {
+    display: block;
+}
+
+.copyright p {
+    font-size: 15px;
+    padding: 0px;
+    margin: auto;
+}
+
+
+/*for smaller screens*/
+
+@media (min-width: 10px) {}
+
+@media (min-width: 370px) {}
+
+
+/*for Medium screens*/
+
+@media (min-width: 480px) {}
+
+
+/*
+for large screens*/
+
+@media (min-width: 768px) {}
+
+
+/*
+@media (min-height: 10px) {
+.page-footer {
+margin: 0px;
+text-align: center;
+}
+}
+
+@media (min-height: 1000px) {
+.page-footer {
+margin: 0px;
+position: absolute;
+bottom: 0px;
+text-align: center;
+width: 100%;
+}
+}*/

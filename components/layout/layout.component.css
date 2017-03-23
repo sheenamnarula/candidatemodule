@@ -1,0 +1,57 @@
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.navIcon {
+    padding-right: 10px;
+}
+
+md-toolbar {
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+}
+
+
+/*for smaller screens*/
+
+@media (min-width: 10px) {
+    md-sidenav {
+        width: 180px;
+    }
+    .headerLarge {
+        display: none;
+    }
+    .headerSmall {
+        display: inline;
+    }
+}
+
+
+/*for Medium screens*/
+
+@media (min-width: 480px) {
+    md-sidenav {
+        width: 200px;
+    }
+    .headerSmall {
+        display: none;
+    }
+    .headerLarge {
+        display: inline;
+    }
+}
+
+
+/*
+for large screens*/
+
+@media (min-width: 768px) {
+    md-sidenav {
+        width: 250px;
+    }
+    .headerSmall {
+        display: none;
+    }
+    .headerLarge {
+        display: inline;
+    }
+}

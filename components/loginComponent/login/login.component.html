@@ -1,0 +1,96 @@
+<!--login Header-->
+<app-login-header></app-login-header>
+
+<!--login card-->
+<div *ngIf="loading" class="progressBar">
+  <md-progress-bar mode="indeterminate"></md-progress-bar>
+</div>
+<md-grid-list cols="1" rowHeight="600px">
+  <md-grid-tile>
+    <md-card class="loginCard">
+      <md-card-title>
+        LOGIN
+      </md-card-title>
+      <md-card-content>
+
+        <form [formGroup]="userForm" (ngSubmit)="login()">
+          <!--Email input-->
+          <div fxLayout="row" fxLayoutAlign="start end">
+            <div fxFlex>
+              <i class="material-icons formIcons">mail</i>
+            </div>
+            <div fxFlex="93">
+              <md-input-container class="full-width">
+                <input mdInput formControlName="email" type="text" class="validate" placeholder="Email" />
+                <md-hint align="start" class="full-width">
+                  <div *ngIf="userForm.get('email').hasError('required') && userForm.get('email').touched" class="errorStyle">
+                    Email is required
+                  </div>
+                  <div *ngIf="userForm.get('email').hasError('pattern') && userForm.get('email')" class="errorStyle">
+                    Invalid email
+                  </div>
+                  <!--<app-control-messages [control]="userForm.controls.email" class="errorStyle"></app-control-messages>-->
+                </md-hint>
+              </md-input-container>
+            </div>
+          </div>
+
+          <!--passowrd input-->
+          <div fxLayout="row" fxLayoutAlign="start end">
+            <div fxFlex>
+              <i class="material-icons formIcons">lock</i>
+            </div>
+            <div fxFlex="93">
+              <md-input-container class="full-width">
+                <input mdInput id="password" type="password" class="validate" formControlName="password" placeholder="Password">
+                <md-hint align="start" class="full-width">
+                  <div *ngIf="userForm.get('password').hasError('required') && userForm.get('password').touched" class="errorStyle">
+                    Password is required
+                  </div>
+                  <div *ngIf="userForm.get('password').hasError('pattern')" class="errorStyle">
+                    Invalid password. Password must be at least 6 characters long, and contain a number
+                  </div>
+                  <!--<app-control-messages [control]="userForm.controls.password" class="errorStyle"></app-control-messages>-->
+                </md-hint>
+              </md-input-container>
+            </div>
+          </div>
+
+          <!--sign in button-->
+          <div fxLayout="row">
+            <div fxFlex="100">
+              <button md-raised-button color="primary" type="submit" class="full-width largeBtn" [disabled]="!userForm.valid">Sign in</button>
+            </div>
+          </div>
+        </form>
+
+        <!--forgot Password button-->
+        <div fxLayout="row">
+          <div fxFlex="100" fxLayoutAlign="center center">
+            <button md-button color="primary" (click)="forgotPassword()" class="forgotBtn">Forgot Password ?</button>
+          </div>
+        </div>
+
+        <!--social media button-->
+        <!--<div fxLayout.gt-sm="row" fxLayout.sm="column" fxHide.sm>-->
+        <div fxLayout="row" fxLayout.xs="column">
+          <div fxFlex="48">
+            <a href="http://localhost:8080/auth/google/" md-raised-button class="full-width largeBtn googleBtn">
+              <i class="zmdi zmdi-google zmdi-hc-lg"></i> Login with <b>Google</b>
+            </a>
+          </div>
+          <div fxFlex></div>
+          <div fxFlex="48">
+            <a href="http://localhost:8080/auth/facebook" md-raised-button class="full-width largeBtn fbBtn">
+              <i class="zmdi zmdi-facebook-box zmdi-hc-lg"></i> Login with <b>Facebook</b>
+            </a>
+          </div>
+        </div>
+      </md-card-content>
+    </md-card>
+    <!--card-ends-->
+  </md-grid-tile>
+</md-grid-list>
+
+<!--footer-->
+<app-login-footer></app-login-footer>

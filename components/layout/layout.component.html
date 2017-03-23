@@ -1,0 +1,76 @@
+<!--sidenav and toolbar with content-->
+<md-sidenav-container fullscreen [class.m2app-dark]="isDarkTheme">
+
+  <!--sidenav starts here..-->
+  <md-sidenav #sidenav mode="over" opened="false">
+
+    <!--sidenav toobar-->
+    <md-toolbar color="primary" class="toolbar">
+      <b>Samarthya</b>
+    </md-toolbar>
+
+    <!--sidenav ites list-->
+    <md-nav-list>
+      <md-list-item *ngFor="let navItem of navList" routerLink={{navItem.path}} routerLinkActive="active" (click)="sidenav.toggle()">
+        <i class="material-icons navIcon">{{navItem.icon}}</i>
+        <p class="navItem"> {{navItem.name}}</p>
+      </md-list-item>
+    </md-nav-list>
+  </md-sidenav>
+  <!--sidenav ends-->
+
+  <!--main appbar starts-->
+  <md-toolbar color="primary" class="toolbar">
+    <!--sidebar toggle button-->
+    <a md-icon-button (click)="sidenav.toggle()" #myButton id="sidebarButton">
+      <i class="material-icons">menu</i>
+    </a>
+    <span><b class="headerLarge">Samarthya Candidate</b></span>
+    <span><b class="headerSmall">Samarthya</b></span>
+
+    <span class="fill-remaining-space"></span>
+    <button md-button (click)="toggleTheme()">TOGGLE DARK THEME</button>
+    <!--appbar buttons-->
+    <!--notification button-->
+    <a md-icon-button [mdMenuTriggerFor]="menuNotification">
+      <i class="material-icons">notifications_active</i>
+    </a>
+    <md-menu #menuNotification x-position="before">
+      <md-list>
+        <md-list-item>
+          <p md-line>No new Notification</p>
+        </md-list-item>
+      </md-list>
+    </md-menu>
+    <!--user account button-->
+    <a md-icon-button [mdMenuTriggerFor]="menuAccount">
+      <i class="material-icons">account_circle</i>
+    </a>
+    <md-menu #menuAccount x-position="before">
+      <md-nav-list>
+        <md-list-item>
+          <p md-line><b>User</b></p>
+        </md-list-item>
+        <md-list-item>
+          <p md-line>Profile</p>
+        </md-list-item>
+        <md-list-item>
+          <p md-line>Change Password</p>
+        </md-list-item>
+        <md-list-item>
+          <p md-line (click)="logout()">
+            Log Out
+          </p>
+        </md-list-item>
+      </md-nav-list>
+    </md-menu>
+  </md-toolbar>
+  <!--main appbar starts-->
+  <!--add the components tags here....-->
+  <!--main content ends here-->
+
+
+  <router-outlet></router-outlet>
+
+</md-sidenav-container>
+<!--sidenav and toolbar with content ends-->

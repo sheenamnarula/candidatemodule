@@ -1,0 +1,131 @@
+md-card {
+    width: 600px;
+}
+
+.formIcons {
+    padding-bottom: 25px;
+    color: gray;
+}
+
+.loading {
+    position: fixed;
+    z-index: 100000;
+    background-color: black;
+    display: block;
+    height: 100%;
+    width: 100%;
+    opacity: .5;
+}
+.division{
+    /*margin:10px;*/
+    text-shadow: 2px 2px 5px gray;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    font-size: 18px;
+    color:dimgray;
+    /*border-bottom: 2px solid lightgray;*/
+}
+
+.gender {
+    height: 70px;
+    padding-bottom: 15px;
+}
+
+.dropdown {
+    height: 70px;
+    padding-bottom: 15px;
+}
+
+.full-width {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.findAreaBtn {
+    padding: 10px;
+    height: 70px;
+    line-height: unset;
+}
+
+.location {
+    margin-top: 10px;
+}
+
+.levelIcon {
+    padding-top: 0px;
+    padding-bottom: 12px;
+}
+
+button {
+    font-size: 15px;
+}
+
+md-card-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 25px;
+}
+
+.registerBtn {
+    margin-top: 50px;
+}
+
+.errorStyle {
+    position: absolute;
+    font-size: 12px;
+    transition: all .7s;
+    color: #F44336;
+}
+
+.googleBtn {
+    background-color: #F44336;
+    color: white;
+}
+
+.fbBtn {
+    background-color: #3f51b5;
+    color: white;
+}
+
+
+/*for smaller screens*/
+
+@media (min-width: 10px) {
+    md-card {
+        top: 56px;
+    }
+    .loading {
+        padding-left: 40%;
+        padding-top: 50%;
+    }
+}
+
+@media (min-width: 370px) {}
+
+
+/*for Medium screens*/
+
+@media (min-width: 480px) {
+    md-card {
+        top: 0px;
+    }
+    .loading {
+        padding-left: 40%;
+        padding-top: 50%;
+    }
+}
+
+
+/*for large screens*/
+
+@media (min-width: 768px) {
+    md-card {
+        top: 0px;
+    }
+    .loading {
+        padding-left: 47%;
+        padding-top: 10%;
+    }
+}

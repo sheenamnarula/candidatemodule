@@ -1,0 +1,26 @@
+<!--Header start-->
+<!--<img class="<backg></backg>roundImage" src="../../../assets/img/loginScreen.jpg" alt="No img">-->
+<md-toolbar color="primary" class="mainHeader">
+  <!--<a href="/">-->
+  <p class="logo">Samarthya</p>
+  <!--</a>-->
+  <span class="fill-remaining-space"></span>
+
+  <!--login button-->
+  <div fxLayout="row">
+    <div fxFlex="100">
+      <button md-button (click)="login()" class="full-width  headerBtn">Login</button>
+    </div>
+  </div>
+  <!--create account button-->
+  <div fxLayout="row">
+    <div fxFlex="100">
+      <button md-button (click)="verifyEmail()" class="full-width  headerBtn">Sign Up</button>
+    </div>
+  </div>
+</md-toolbar>
+<div class="langBar" fxFlex fxHide.xs>
+  <button *ngFor="let lang of languages" title={{lang.name}} class="langBtn" md-button>
+   <div> {{lang.nativeName}}</div>
+    </button>
+</div>

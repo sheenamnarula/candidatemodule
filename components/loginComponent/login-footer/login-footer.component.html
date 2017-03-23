@@ -1,0 +1,24 @@
+<!--footer starts-->
+<div class="langBar" fxFlex fxHide.gt-xs>
+  <button *ngFor="let lang of languages" title={{lang.name}} class="langBtn" md-button>
+   <div> {{lang.nativeName}}</div>
+    </button>
+</div>
+<md-toolbar color="primary" class="footer">
+  <div class="footerHead">
+    <h5>Samarthya</h5>
+  </div>
+  <span class="fill-remaining-space"></span>
+  <div class="footerLinks">
+    <ul>
+      <li><a class="grey-text text-lighten-3" href="#">Samarthya Candidate</a></li>
+      <li><a class="grey-text text-lighten-3" href="#">Samarthya Placement</a></li>
+      <li><a class="grey-text text-lighten-3" href="#">FAQ</a></li>
+      <li><a class="grey-text text-lighten-3" href="#">About Us</a></li>
+    </ul>
+  </div>
+
+</md-toolbar>
+<md-toolbar color="primary" class="copyright">
+  <p> © Copyright Samarthya 2017</p>
+</md-toolbar>
